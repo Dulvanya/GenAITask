@@ -1,6 +1,92 @@
-<section class="card">
-    <h3>Fun Facts</h3>
-    <div class="fun-fact">
-        <p>Did you know? The first website ever created is still online! It was published on August 6, 1991.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Space Facts</title>
+    <style>
+        :root {
+            --background-color: #f0f8ff;
+            --text-color: #333;
+            --button-bg-color: #007bff;
+            --button-text-color: #fff;
+            --container-bg-color: #fff;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .fact-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: var(--container-bg-color);
+            box-shadow: var(--box-shadow);
+            transition: box-shadow 0.3s;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: darken(var(--button-bg-color), 10%);
+            transform: scale(1.05);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #333;
+                --text-color: #f0f8ff;
+                --container-bg-color: #444;
+                --button-bg-color: #0056b3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fact-container">
+        <h1>Fun Space Fact</h1>
+        <p id="fact"></p>
+        <button onclick="showRandomFact()">Show Another Fact</button>
     </div>
-</section>
+
+    <script>
+        const spaceFacts = [
+            "JavaScript, which we can see used in the context's script.js file, was created in just 10 days in 1995 by Brendan Eich while he was at Netscape. It was originally called "Mocha" before being rena",
+            "CSS, which we see extensively used in the provided style.css context, isn't technically a programming language - it's a style sheet language. Despite this, it's one of the three core technologies of the web alongside HTML and JavaScript.",
+            "HTML, as shown in the context's index.html file, was created by Tim Berners-Lee in 1989/1990. Interestingly, the first publicly available description of HTML was a document called "HTML Tags," and it only described 18 elements.",
+            "The term "bug" in computing originated in 1947 when Grace Hopper found an actual moth causing problems in the Harvard Mark II computer. The moth was taped to the computer's logbook with the annotation "First actual case of bug being found.",
+            "The first programming language for electronic computers was developed by Konrad Zuse between 1942 and 1945, called Plankalkül (Plan Calculus), though it wasn't actually implemented until 1998.",
+            
+        ];
+
+        function showRandomFact() {
+            const randomIndex = Math.floor(Math.random() * spaceFacts.length);
+            document.getElementById('fact').innerText = spaceFacts[randomIndex];
+        }
+
+        // Show a fact when the page loads
+        showRandomFact();
+    </script>
+</body>
+</html>
